@@ -9,7 +9,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import com.waylau.spring.boot.fileserver.domain.File;
 import com.waylau.spring.boot.fileserver.repository.FileRepository;
@@ -40,11 +39,6 @@ public class FileServiceImpl implements FileService {
 	public File getFileById(String id) {
 		return fileRepository.findOne(id);
 	}
-	
-	@Override
-	public List<File> listFiles() {
-		return fileRepository.findAll();
-	}
 
 	@Override
 	public List<File> listFilesByPage(int pageIndex, int pageSize) {
@@ -53,7 +47,7 @@ public class FileServiceImpl implements FileService {
 		
 		Sort sort = new Sort(Direction.DESC,"uploadDate"); 
 		Pageable pageable = new PageRequest(pageIndex, pageSize, sort);
-		//Pageable pageable = new PageRequest(pageIndex, pageSize);
+		
 		page = fileRepository.findAll(pageable);
 		list = page.getContent();
 		return list;

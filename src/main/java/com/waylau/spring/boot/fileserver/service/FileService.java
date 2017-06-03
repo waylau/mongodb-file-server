@@ -5,9 +5,6 @@ package com.waylau.spring.boot.fileserver.service;
 
 import java.util.List;
 
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-
 import com.waylau.spring.boot.fileserver.domain.File;
 
 /**
@@ -37,14 +34,7 @@ public interface FileService {
 	 * @return
 	 */
 	File getFileById(String id);
-	
-	/**
-	 * 获取文件列表
-	 * @param File
-	 * @return
-	 */
-	List<File> listFiles();
-	
+
 	/**
 	 * 分页查询，按上传时间降序
 	 * @param pageIndex

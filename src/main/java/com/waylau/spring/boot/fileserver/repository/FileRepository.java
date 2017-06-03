@@ -1,7 +1,5 @@
 package com.waylau.spring.boot.fileserver.repository;
 
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import com.waylau.spring.boot.fileserver.domain.File;

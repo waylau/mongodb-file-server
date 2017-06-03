@@ -5,11 +5,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
-import org.springframework.data.domain.Sort.Direction;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -35,10 +31,17 @@ public class FileController {
 
     @Autowired
     private FileService fileService;
-
+    
+    @Value("${server.address}")
+    private String serverAddress;
+    
+    @Value("${server.port}")
+    private String serverPort;
+    
     @RequestMapping(value = "/")
     public String index(Model model) {
-        model.addAttribute("files", fileService.listFiles());
+    	// 展示最新二十条数据
+        model.addAttribute("files", fileService.listFilesByPage(0,20)); 
         return "index";
     }
 
@@ -139,7 +142,7 @@ public class FileController {
         	File f = new File(file.getOriginalFilename(),  file.getContentType(), file.getSize(),file.getBytes());
         	f.setMd5( MD5Util.getMD5(file.getInputStream()) );
         	returnFile = fileService.saveFile(f);
-        	returnFile.setPath("http://localhost:8081/view/"+f.getId());
+        	returnFile.setPath("//"+ serverAddress + ":" + serverPort + "/view/"+f.getId());
         	returnFile.setContent(null) ;
         	return ResponseEntity.status(HttpStatus.OK).body("http://localhost:8081/view/"+f.getId());
  
