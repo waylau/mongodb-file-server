@@ -52,5 +52,4 @@ public class FileServiceImpl implements FileService {
 		list = page.getContent();
 		return list;
 	}
-
 }

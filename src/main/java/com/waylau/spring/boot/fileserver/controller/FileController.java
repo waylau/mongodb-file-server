@@ -134,6 +134,11 @@ public class FileController {
         return "redirect:/";
     }
  
+    /**
+     * 上传接口
+     * @param file
+     * @return
+     */
     @PostMapping("/upload")
     @ResponseBody
     public ResponseEntity<String> handleFileUpload(@RequestParam("file") MultipartFile file) {
@@ -142,9 +147,8 @@ public class FileController {
         	File f = new File(file.getOriginalFilename(),  file.getContentType(), file.getSize(),file.getBytes());
         	f.setMd5( MD5Util.getMD5(file.getInputStream()) );
         	returnFile = fileService.saveFile(f);
-        	returnFile.setPath("//"+ serverAddress + ":" + serverPort + "/view/"+f.getId());
-        	returnFile.setContent(null) ;
-        	return ResponseEntity.status(HttpStatus.OK).body("http://localhost:8081/view/"+f.getId());
+        	String path = "//"+ serverAddress + ":" + serverPort + "/view/"+returnFile.getId();
+        	return ResponseEntity.status(HttpStatus.OK).body(path);
  
         } catch (IOException | NoSuchAlgorithmException ex) {
             ex.printStackTrace();
