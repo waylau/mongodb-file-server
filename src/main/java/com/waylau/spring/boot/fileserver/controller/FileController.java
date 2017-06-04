@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -155,5 +156,22 @@ public class FileController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(ex.getMessage());
         }
  
+    }
+    
+    /**
+     * 删除文件
+     * @param id
+     * @return
+     */
+    @DeleteMapping("/{id}")
+    @ResponseBody
+    public ResponseEntity<String> deleteFile(@PathVariable String id) {
+ 
+    	try {
+			fileService.removeFile(id);
+			return ResponseEntity.status(HttpStatus.OK).body("DELETE Success!");
+		} catch (Exception e) {
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
+		}
     }
 }
