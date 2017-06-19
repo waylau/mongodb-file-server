@@ -25,8 +25,3 @@ dist/
 nbdist/
 .nb-gradle/
 /bin/
-
-/.gitignore
-/build.gradle
-/gradlew
-/gradlew.bat
