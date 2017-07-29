@@ -46,7 +46,7 @@ $ git clone https://github.com/waylau/mongodb-file-server.git
 ### 2. Run
 
 ```shell
-$ gradlew booRun
+$ gradlew bootRun
 ```
 
 then, you can visit the application at <http://localhost:8081>.
