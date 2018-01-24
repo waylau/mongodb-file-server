@@ -95,6 +95,11 @@ dependencies {
 
 See detail <https://waylau.com/mogodb-file-server-with-spring-boot>.
 
+## Host
+
+* GitHub：<https://github.com/waylau/mongodb-file-server>
+* 码云：<https://gitee.com/waylau/mongodb-file-server>
+
 ## Contact 联系作者
 
 * Blog: [waylau.com](https://waylau.com)
