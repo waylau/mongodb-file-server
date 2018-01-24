@@ -4,6 +4,7 @@
 package com.waylau.spring.boot.fileserver.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.waylau.spring.boot.fileserver.domain.File;
 
@@ -33,7 +34,7 @@ public interface FileService {
 	 * @param File
 	 * @return
 	 */
-	File getFileById(String id);
+	Optional<File> getFileById(String id);
 
 	/**
 	 * 分页查询，按上传时间降序
