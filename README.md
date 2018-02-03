@@ -16,11 +16,11 @@ It's using some very popular technology like:
 本文不会对 MongoDB 的概念、基本用法做过多的介绍，有兴趣的朋友可自行查阅其他文献，比如，笔者所著的[《分布式系统常用技术及案例分析》](https://github.com/waylau/distributed-systems-technologies-and-cases-analysis)一书，对 MongoDB 方面也有所着墨。 
 
 
-## Features
+## Features 特性
 
-* Easy to use.
+* Easy to use.（易于使用）
 * RESTful API.
-* Chinese characters friendly.
+* Chinese characters friendly.（中文友好）
 * ...
 
 ## APIs
@@ -34,17 +34,19 @@ Here are useful APIs.
 * DELETE /{id} : Delete file.(删除文件)
 
 
-## How to 
+## How to （如何使用）
 
 It's so easy to start up the MongoDB File Server with 2 steps.
 
-### 1. Get source
+只需要两步。
+
+### 1. Get source（获取源码）
 
 ```shell
 $ git clone https://github.com/waylau/mongodb-file-server.git
 ```
 
-### 2. Run
+### 2. Run（运行）
 
 ```shell
 $ gradlew bootRun
@@ -52,10 +54,10 @@ $ gradlew bootRun
 
 then, you can visit the application at <http://localhost:8081>.
 
-## Configuration
+## Configuration （配置）
 
 
-The default configuration is :
+The default configuration is （默认配置如下） :
 
 ```
 server.address=localhost
@@ -75,13 +77,13 @@ spring.http.multipart.max-request-size=1024KB
 
 NOTE: default configuration will use a embedded Mongo, that means data will never persist when the MongoDB File Server restart.
 
-You can set `spring.data.mongodb.uri` property to configure additional settings such as the replica set:
+You can set `spring.data.mongodb.uri` property to configure additional settings such as the replica set.（支持配置独立运行的 MongoDB 的连接方式）:
 
 ```shell
 spring.data.mongodb.uri=mongodb://user:secret@mongo1.example.com:12345,mongo2.example.com:23456/test
 ```
 
-If you want to use a stanlne MongoDB server, comment out Embedded MongoDB dependencies in `build.gradle` file:
+If you want to use a stanlne MongoDB server, comment out Embedded MongoDB dependencies in `build.gradle` file.（如果需要使用独立运行的 MongoDB，就把下面的依赖注释掉）:
 
 ```
 dependencies {
@@ -91,11 +93,11 @@ dependencies {
 }
 ```
 
-## Detail
+## Detail （详细设计说明）
 
 See detail <https://waylau.com/mogodb-file-server-with-spring-boot>.
 
-## Host
+## Host（托管）
 
 * GitHub：<https://github.com/waylau/mongodb-file-server>
 * 码云：<https://gitee.com/waylau/mongodb-file-server>
