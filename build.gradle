@@ -2,7 +2,7 @@ buildscript { // buildscript 代码块中脚本优先执行
 
 	// ext 用于定义动态属性
 	ext {
-		springBootVersion = '2.0.0.M7'
+		springBootVersion = '2.0.3.RELEASE'
 	}
 
 	// 使用了 Maven 的中央仓库（也可以指定其他仓库）
