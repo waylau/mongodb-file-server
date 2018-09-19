@@ -71,8 +71,8 @@ spring.thymeleaf.cache=false
 spring.thymeleaf.mode=HTML5
 
 # limit upload file size
-spring.http.multipart.max-file-size=1024KB
-spring.http.multipart.max-request-size=1024KB
+spring.servlet.multipart.max-file-size=1024KB
+spring.servlet.multipart.max-request-size=1024KB
 ```
 
 `spring.http.multipart.max-file-size` and `spring.http.multipart.max-request-size` limit upload file never larger than 1MB.
