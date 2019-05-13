@@ -31,6 +31,7 @@
         <td>size</td>
         <td>uploadDate</td>
         <td>md5</td>
+        <td>delete</td>
     </tr>
     </thead>
     <tbody>
@@ -44,6 +45,7 @@
         <td th:text="${file.size}" ></td>
         <td th:text="${file.uploadDate}" ></td>
         <td th:text="${file.md5}" ></td>
+        <td onclick="deleteImg(this)" th:id="${file.id}" style="text-align:center;"><i class="fa fa-trash-o" ></i></td>
     </tr>
     </tbody>
 </table>
